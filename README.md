@@ -1,7 +1,11 @@
 # DeliveryBackend
 backend for delivery management system (final project for "Databse Management 2019")
 
-## Step up
+## 安裝
+1. mariadb (https://mariadb.org/download/)
+2. nodejs (https://nodejs.org/en/download/)
+
+## Set up
 1. 到 cmd 執行 
 ```
 git clone https://github.com/wendeehsu/DeliveryBackend.git
@@ -11,9 +15,7 @@ git clone https://github.com/wendeehsu/DeliveryBackend.git
 cd DeliveryBackend
 ```
 
-2. 安裝 mariadb (https://mariadb.org/download/)
-
-3. 先登入 `root` 使用者
+2. 先登入 `root` 使用者
 ```
 mysql -u root
 ```
@@ -22,7 +24,7 @@ mysql -u root
 sudo mysql -u root
 ```
 
-4. 為資料庫建立一個使用者叫 `test` ，並給它最高權限 
+3. 為資料庫建立一個使用者叫 `test` ，並給它最高權限 
 ```
 MariaDB > CREATE USER 'test'@'localhost';
 MariaDB > GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost' WITH GRANT OPTION;
@@ -30,12 +32,12 @@ MariaDB > FLUSH PRIVILEGES;
 ```
 [指令參考](https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04)
 
-5. 回到cmd，執行 sql
+4. 回到cmd，執行 sql
 ```
 mysql -u test < db.sql
 ```
 
-6. 再次登入，如果table有建起來就成功了
+5. 再次登入，如果table有建起來就成功了
 ```
 mysql -u test
 MariaDB [(none)] > show databases;
@@ -43,3 +45,14 @@ MariaDB [(none)] > use delivery_db;
 MariaDB [(none)] > show tables;
 MariaDB [delivery_db]> select * from users;
 ```
+
+## 使用方式
+1. 到 cmd 裡，進到 `DeliveryBackend` 的路徑下，執行：
+```
+npm install
+```
+2. 接著執行：
+```
+node server.js
+```
+3. 網頁打開： http://localhost:3000/api-docs/  就可以看到 api 了~
