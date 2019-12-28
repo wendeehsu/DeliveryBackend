@@ -39,7 +39,7 @@ app.get('/swagger.json', function(req, res) {
 
 // routes
 require("./app/routes/user.routes.js")(app);
-require("./app/routes/platformActivity.routes.js")(app);
+require("./app/routes/platform.routes.js")(app);
 require("./app/routes/store.routes")(app);
 
 // set port, listen for requests
