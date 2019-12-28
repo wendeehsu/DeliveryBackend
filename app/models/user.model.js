@@ -24,7 +24,7 @@ User.create = (newUser, result) => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE users SET name = ?, phone = ?, address = ? WHERE uid = ?",
+    "UPDATE users SET name = ?, phone = ?, address = ? WHERE id = ?",
     [user.name, user.phone, user.address, id],
     (err, res) => {
       if (err) {

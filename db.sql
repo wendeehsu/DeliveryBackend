@@ -4,7 +4,7 @@ USE delivery_db;
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-  uid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255),
   phone VARCHAR(255),
   address VARCHAR(255),
@@ -18,7 +18,7 @@ INSERT INTO users (name,phone,address,password,account) values
 
 DROP TABLE IF EXISTS platform_Activities;
 CREATE TABLE platform_Activities (
-  pid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   discount_shippingFee int(11) NOT NULL,
   discountMode int NOT NULL,
   discountParam float,
