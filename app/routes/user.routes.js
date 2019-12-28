@@ -1,8 +1,73 @@
 module.exports = app => {
-const users = require("../controllers/user.controller.js");
-    // Create a new user
-    app.post("/users", users.create);
+    const users = require("../controllers/user.controller.js");
+        /**
+         * @swagger
+         * definitions:
+         *   User:
+         *     type: object
+         *     required:
+         *       - account
+         *       - password
+         *     properties:
+         *       name:
+         *         type: string
+         *       phone:
+         *         type: string
+         *       address:
+         *         type: string
+         *       password:
+         *         type: string
+         *       account:
+         *         type: string
+         */    
 
-    // Update a user with userId
-    app.put("/users/:userId", users.update);
+        /**
+         * @swagger
+         * /users:
+         *   post:
+         *     description: create user
+         *     produces:
+         *       - application/json
+         *     parameters:
+         *       - name: user
+         *         description: User object
+         *         in:  body
+         *         required: true
+         *         type: string
+         *         schema:
+         *           $ref: '#/definitions/User'
+         *     responses:
+         *       200:
+         *         description: users
+         *         schema:
+         *           $ref: '#/definitions/User'
+         */
+        app.post("/users", users.create);
+
+        /**
+         * @swagger
+         * /users/{id}:
+         *   put:
+         *     description: update user
+         *     produces:
+         *       - application/json
+         *     parameters:
+         *       - name: id
+         *         in:  path
+         *         required: true
+         *         type: string
+         *       - name: user
+         *         description: User object
+         *         in:  body
+         *         required: true
+         *         type: string
+         *         schema:
+         *           $ref: '#/definitions/User'
+         *     responses:
+         *       200:
+         *         description: users
+         *         schema:
+         *           $ref: '#/definitions/User'
+         */
+        app.put("/users/:userId", users.update);
 };
