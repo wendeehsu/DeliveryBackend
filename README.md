@@ -4,7 +4,8 @@ backend for delivery management system (final project for "Databse Management 20
 ## 安裝
 1. mariadb (https://mariadb.org/download/)
 2. nodejs (https://nodejs.org/en/download/)
-## Step up
+
+## Set up
 1. 到 cmd 執行 
 ```
 git clone https://github.com/wendeehsu/DeliveryBackend.git
