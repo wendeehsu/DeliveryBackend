@@ -10,13 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // swagger definition
 var swaggerDefinition = {
   info: {
-    title: 'Node Swagger API',
-    version: '1.0.0',
-    description: 'Demonstrating how to describe a RESTful API with Swagger',
+    title: 'Delivery Management API',
+    version: '1.0.0'
   },
   host: 'localhost:3000',
   basePath: '/',
@@ -29,11 +27,6 @@ var options = {
   // path to the API docs
   apis: ['./app/routes/*.js'],
 };
-
-// simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Welcome to wendee's backend." });
-// });
 
 // initialize swagger-jsdoc
 var swaggerSpec = swaggerJSDoc(options);
