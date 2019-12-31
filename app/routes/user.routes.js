@@ -6,7 +6,9 @@ module.exports = app => {
      *   User:
      *     type: object
      *     required:
+     *       - name
      *       - account
+     *       - address
      *       - password
      *     properties:
      *       name:

@@ -2,6 +2,7 @@ const sql = require("./db.js");
 
 // constructor
 const User = function(user) {
+  this.id = user.id;
   this.name = user.name;
   this.phone = user.phone;
   this.address = user.address;
@@ -10,7 +11,7 @@ const User = function(user) {
 };
 
 User.create = (newUser, result) => {
-  sql.query("INSERT INTO users SET ?", newUser, (err, res) => {
+  sql.query("INSERT INTO User SET ?", newUser, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -24,7 +25,7 @@ User.create = (newUser, result) => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE users SET name = ?, phone = ?, address = ? WHERE id = ?",
+    "UPDATE User SET UName = ?, phone = ?, address = ? WHERE UID = ?",
     [user.name, user.phone, user.address, id],
     (err, res) => {
       if (err) {
