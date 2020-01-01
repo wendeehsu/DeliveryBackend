@@ -11,3 +11,25 @@ exports.getAll = (req, res) => {
         else res.send(data);
     });
 };
+
+// Get supported Platform
+exports.getPlatform = (req, res) => {
+    Platform.getPlatforms(
+        req.params.restaurantId,
+        (err, data) => {
+            if (err) {
+                if (err.kind === "not_found") {
+                    res.status(404).send({
+                        message: `Not found platforms support restaurant with Id: ${req.params.restaurantId}`
+                    });
+                } else {
+                    res.status(500).send({
+                        message: "Error retrieving platforms with restaurantId : " + req.params.restaurantId
+                    });
+                }
+            } else {
+                res.send(data);
+            }
+        }
+    );
+};

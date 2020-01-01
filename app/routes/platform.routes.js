@@ -34,4 +34,24 @@ module.exports = app => {
      *           $ref: '#/definitions/Platform'     
      */
     app.get("/platforms", platform.getAll);
+
+    /**
+     * @swagger
+     * /platforms/{restaurantId}:
+     *   get:
+     *     tags:
+     *       -  Platform
+     *     description: get Platform with given restaurantId
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: restaurantId
+     *         in:  path
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: Restaurants
+     */
+    app.get("/platforms/:restaurantId", platform.getPlatform);
 };

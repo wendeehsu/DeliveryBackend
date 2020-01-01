@@ -20,4 +20,27 @@ Platform.getAll = result => {
     });
 };
 
+Platform.getPlatforms = (restaurantId, result) => {
+    sql.query(
+        "select p.PID as id, p.PName as name, shippingFee from Restaurant as r, supportedPlatform as sp, platform as p where r.RID = sp.RID and sp.PID = p.PID and r.RID = ?",
+        restaurantId,
+        (err, res) => {
+            if (err) {
+              console.log("error: ", err);
+              result(null, err);
+              return;
+            }
+
+            if (res.affectedRows == 0) {
+              // not found platform with the id
+              result({ kind: "not_found" }, null);
+              return;
+            }
+
+            console.log("res = ", res);
+            result(null,res);
+        }
+    );
+};
+
 module.exports = Platform;
