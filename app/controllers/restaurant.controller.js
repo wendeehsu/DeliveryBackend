@@ -25,7 +25,7 @@ exports.getCategoryName = (req,res) => {
 };
 
 // Get restaurant by category
-exports.getCategory = (req,res) => {
+exports.getCategory = (req, res) => {
     Restaurant.getCategories(
         req.params.categoryName,
         (err, data) => {

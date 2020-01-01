@@ -9,7 +9,7 @@ const Restaurant = function(store) {
 };
 
 Restaurant.getAll = result => {
-    sql.query("SELECT * FROM Restaurant", (err, res) => {
+    sql.query("SELECT RID as id, RName as name, address, R_IMG_URL as pic_url FROM Restaurant", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -39,7 +39,7 @@ Restaurant.getCategoryName = result => {
 
 Restaurant.getCategories = (category, result) => {
     sql.query(
-        "select * from Restaurant where RID in (select RID from RestaurantCategory where CName = ?)",
+        "select RID as id, RName as name, address, R_IMG_URL as pic_url from Restaurant where RID in (select RID from RestaurantCategory where CName = ?)",
         category,
         (err, res) => {
             if (err) {

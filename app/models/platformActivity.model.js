@@ -15,7 +15,9 @@ const PlatformActivity = function(pa) {
 };
 
 PlatformActivity.getAll = result => {
-    sql.query("SELECT * FROM platform_activity", (err, res) => {
+    sql.query(
+        "SELECT PID as platformId, PA_ID as id, PA_Name as name, discount_shippingFee, FoodDiscountMode, FDM_arg1, FDM_arg2, description, P_ACT_IMG_URL as pic_url, start_time, end_time FROM platform_activity", 
+        (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);

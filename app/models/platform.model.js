@@ -8,7 +8,7 @@ const Platform = function(p) {
 };
 
 Platform.getAll = result => {
-    sql.query("SELECT * FROM platform", (err, res) => {
+    sql.query("SELECT PID as id, PName as name, shippingFee, P_IMG_URL as pic_url FROM platform", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);

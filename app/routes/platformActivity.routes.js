@@ -6,10 +6,10 @@ module.exports = app => {
      *   PlatformActivity:
      *     type: object
      *     required:
-     *       - pid
+     *       - platformId
      *       - id
      *     properties:
-     *       pid:
+     *       platformId:
      *         type: integer
      *       id:
      *         type: integer
@@ -19,9 +19,9 @@ module.exports = app => {
      *         type: integer
      *       FoodDiscountMode:
      *         type: integer
-     *       arg1:
+     *       FDM_arg1:
      *         type: float
-     *       arg2:
+     *       FDM_arg2:
      *         type: float
      *       description:
      *         type: string

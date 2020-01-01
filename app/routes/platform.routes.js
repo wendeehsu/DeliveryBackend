@@ -12,9 +12,9 @@ module.exports = app => {
      *         type: integer
      *       name:
      *         type: string
-     *       url:
+     *       pic_url:
      *         type: string
-     *       fee:
+     *       shippingFee:
      *         type: integer
      */
 
