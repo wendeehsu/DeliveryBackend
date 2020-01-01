@@ -1,9 +1,9 @@
 module.exports = app => {
-    const stores = require("../controllers/store.controller.js");
+    const restaurants = require("../controllers/restaurant.controller.js");
     /**
      * @swagger
      * definitions:
-     *   Store:
+     *   Restaurant:
      *     type: object
      *     required:
      *       - id
@@ -20,18 +20,18 @@ module.exports = app => {
 
     /**
      * @swagger
-     * /stores:
+     * /restaurants:
      *   get:
      *     tags:
-     *       -  Store
-     *     description: Returns all stores
+     *       -  Restaurant
+     *     description: Returns all restaurants
      *     produces:
      *       - application/json
      *     responses:
      *       200:
-     *         description: An array of stores
+     *         description: An array of restaurants
      *         schema:
-     *           $ref: '#/definitions/Store'     
+     *           $ref: '#/definitions/Restaurant'     
      */
-    app.get("/stores", stores.get);
+    app.get("/restaurants", restaurants.get);
 };

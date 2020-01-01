@@ -16,25 +16,6 @@ module.exports = app => {
      *         type: string
      *       fee:
      *         type: integer
-     *   PlatformActivity:
-     *     type: object
-     *     required:
-     *       - pid
-     *       - discount_shippingFee
-     *       - discountMode
-     *     properties:
-     *       pid:
-     *         type: integer
-     *       discount_shippingFee:
-     *         type: integer
-     *       discountMode:
-     *         type: integer
-     *       discountParam:
-     *         type: float
-     *       description:
-     *         type: string
-     *       pic_url:
-     *         type: string
      */
 
     /**
@@ -53,21 +34,4 @@ module.exports = app => {
      *           $ref: '#/definitions/Platform'     
      */
     app.get("/platforms", platform.getAll);
-
-    /**
-     * @swagger
-     * /platform/Activities:
-     *   get:
-     *     tags:
-     *       -  Platform
-     *     description: Returns all platformActivities
-     *     produces:
-     *       - application/json
-     *     responses:
-     *       200:
-     *         description: An array of puppies
-     *         schema:
-     *           $ref: '#/definitions/PlatformActivity'     
-     */
-    app.get("/platform/Activities", platform.getAllActivities);
 };

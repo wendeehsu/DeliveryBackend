@@ -11,15 +11,3 @@ exports.getAll = (req, res) => {
         else res.send(data);
     });
 };
-
-// Get all PlatformActivities
-exports.getAllActivities = (req, res) => {
-    Platform.getAllActivities((err, data) => {
-        if (err)
-            res.status(500).send({
-                message:
-                    err.message || "error occured while retrieving platform activities."
-            });
-        else res.send(data);
-    });
-};
