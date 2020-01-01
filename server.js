@@ -42,6 +42,7 @@ require("./app/routes/user.routes.js")(app);
 require("./app/routes/platform.routes.js")(app);
 require("./app/routes/platformActivity.routes.js")(app);
 require("./app/routes/restaurant.routes.js")(app);
+require("./app/routes/food.routes.js")(app);
 
 // set port, listen for requests
 app.listen(3000, () => {
