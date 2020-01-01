@@ -21,4 +21,43 @@ Restaurant.getAll = result => {
     });
 };
 
+Restaurant.getCategoryName = result => {
+    sql.query("SELECT DISTINCT(CName) from RestaurantCategory", (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        categories = []
+        for(var i in res) {
+            categories.push(res[i].CName);
+        }
+        console.log("categories: ", categories);
+        result(null, categories);
+    });
+};
+
+Restaurant.getCategories = (category, result) => {
+    sql.query(
+        "select * from Restaurant where RID in (select RID from RestaurantCategory where CName = ?)",
+        category,
+        (err, res) => {
+            if (err) {
+              console.log("error: ", err);
+              result(null, err);
+              return;
+            }
+
+            if (res.length == 0) {
+              // not found user with the id
+              result({ kind: "not_found" }, null);
+              return;
+            }
+
+            console.log("category = ", category, " res = ", res);
+            result(null,res);
+        }
+    );
+};
+
 module.exports = Restaurant;
