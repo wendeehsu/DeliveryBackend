@@ -46,4 +46,26 @@ User.updateById = (id, user, result) => {
   );
 };
 
+User.Authenticate = (auth, result) => {
+  sql.query("SELECT * from User WHERE account = ? and password = ?",
+    [auth.account,auth.password],
+    (err,res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.length == 0) {
+        // not found user with the same account and password
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("get user: ", res[0]);
+      result(null, res[0]);
+    }
+  );
+};
+
 module.exports = User;

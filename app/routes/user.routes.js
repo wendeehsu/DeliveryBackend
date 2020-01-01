@@ -21,11 +21,21 @@ module.exports = app => {
      *         type: string
      *       account:
      *         type: string
+     * 
+     *   Auth:
+     *     required:
+     *       - account
+     *       - password
+     *     properties:
+     *       account:
+     *         type: string
+     *       password:
+     *         type: string     
      */    
 
     /**
      * @swagger
-     * /users:
+     * /user:
      *   post:
      *     tags:
      *       -  User
@@ -46,7 +56,7 @@ module.exports = app => {
      *         schema:
      *           $ref: '#/definitions/User'
      */
-    app.post("/users", users.create);
+    app.post("/user", users.create);
 
     /**
      * @swagger
@@ -76,4 +86,29 @@ module.exports = app => {
      *           $ref: '#/definitions/User'
      */
     app.put("/users/:userId", users.update);
+
+    /**
+     * @swagger
+     * /authenticate:
+     *   post:
+     *     tags:
+     *       -  User
+     *     description: find user
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: auth
+     *         description: Auth object
+     *         in:  body
+     *         required: true
+     *         type: string
+     *         schema:
+     *           $ref: '#/definitions/Auth'
+     *     responses:
+     *       200:
+     *         description: user
+     *         schema:
+     *           $ref: '#/definitions/User'
+     */
+    app.post("/authenticate", users.Authenticate);
 };
