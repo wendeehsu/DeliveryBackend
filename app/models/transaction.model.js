@@ -24,9 +24,18 @@ Transaction.create = (newTrans, result) => {
         }
         
         // insert details
+        CreateDetails(res.insertId, newTrans);
         console.log("created Transaction: ", { id: res.insertId, ...newTrans });
         result(null, { id: res.insertId, ...newTrans });
       });
 };
+
+const CreateDetails = function(tid, newTrans) {
+    for(var i = 0; i < newTrans.TransactionFoods.length; i++) {
+        var food = newTrans.TransactionFoods[i];
+        sql.query("INSERT INTO TransactionFood SET `TID` = ?, `RID` = ?, `FID` = ?, `num` = ?",
+        [tid, newTrans.RID, food.id, food.num])
+    }
+}
 
 module.exports = Transaction;

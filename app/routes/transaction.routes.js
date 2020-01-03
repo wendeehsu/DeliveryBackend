@@ -17,6 +17,18 @@ module.exports = app => {
      *         type: integer
      *       platformId:
      *         type: integer
+     *       foods:
+     *         type: array
+     *         items:
+     *           type: object
+     *           minItems: 1
+     *           required:
+     *              - id
+     *           properties:
+     *              id:
+     *                type: integer     
+     *              num:
+     *                type: integer
      *       totalPrice:
      *         type: integer
      *       getDiscount:

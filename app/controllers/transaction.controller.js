@@ -13,7 +13,7 @@ exports.create = (req, res) => {
         UID: req.body.userId,
         RID: req.body.restaurantId,
         PID: req.body.platformId,
-        TransactionFoods: req.body.TransactionFoods,
+        TransactionFoods: req.body.foods,
         totalPrice: req.body.totalPrice,
         getDiscount: req.body.getDiscount
     });
