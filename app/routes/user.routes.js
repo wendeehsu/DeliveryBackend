@@ -20,17 +20,7 @@ module.exports = app => {
      *       password:
      *         type: string
      *       account:
-     *         type: string
-     * 
-     *   Auth:
-     *     required:
-     *       - account
-     *       - password
-     *     properties:
-     *       account:
-     *         type: string
-     *       password:
-     *         type: string     
+     *         type: string 
      */    
 
     /**
@@ -73,12 +63,18 @@ module.exports = app => {
      *         required: true
      *         type: string
      *       - name: user
-     *         description: User object
+     *         description: user object
      *         in:  body
      *         required: true
      *         type: string
      *         schema:
-     *           $ref: '#/definitions/User'
+     *           properties:
+     *              name:
+     *                type: string
+     *              phone:
+     *                type: string    
+     *              address:
+     *                type: string 
      *     responses:
      *       200:
      *         description: users
@@ -103,7 +99,11 @@ module.exports = app => {
      *         required: true
      *         type: string
      *         schema:
-     *           $ref: '#/definitions/Auth'
+     *           properties:
+     *              account:
+     *                  type: string
+     *              password:
+     *                  type: string 
      *     responses:
      *       200:
      *         description: user

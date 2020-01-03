@@ -2,8 +2,7 @@ const sql = require("./db.js");
 
 // constructor
 const User = function(user) {
-  this.id = user.id;
-  this.name = user.name;
+  this.UName = user.name;
   this.phone = user.phone;
   this.address = user.address;
   this.password = user.password;
@@ -26,7 +25,7 @@ User.create = (newUser, result) => {
 User.updateById = (id, user, result) => {
   sql.query(
     "UPDATE User SET UName = ?, phone = ?, address = ? WHERE UID = ?",
-    [user.name, user.phone, user.address, id],
+    [user.UName, user.phone, user.address, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
