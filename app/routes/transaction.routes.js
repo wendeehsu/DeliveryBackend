@@ -75,4 +75,24 @@ module.exports = app => {
      *           $ref: '#/definitions/Transaction'
      */
     app.post("/transaction",transactions.create);
+
+    /**
+     * @swagger
+     * /transactions/{userId}:
+     *   get:
+     *     tags:
+     *       -  Transaction
+     *     description: get Transaction
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: userId
+     *         in:  path
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: Transactions
+     */
+    app.get("/transactions/:userId", transactions.get);
 };

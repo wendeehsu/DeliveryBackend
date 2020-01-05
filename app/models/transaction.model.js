@@ -36,6 +36,21 @@ const CreateDetails = function(tid, newTrans) {
         sql.query("INSERT INTO TransactionFood SET `TID` = ?, `RID` = ?, `FID` = ?, `num` = ?",
         [tid, newTrans.RID, food.id, food.num])
     }
-}
+};
+
+Transaction.get = (userId, result) => {
+    sql.query("select t.TID as id, t.UID as userId, r.RID as restaurantId, r.RName as restaurantName, p.PID as platformId, p.PName as platformName, t.totalPrice, t.getDiscount, t.time from Transaction as t, Restaurant as r, platform as p where t.UID = ? and t.RID = r.RID and t.PID = p.PID;",
+    userId,
+     (err, res) => {
+        if (err) {
+          console.log("error: ", err);
+          result(err, null);
+          return;
+        }
+
+        console.log("get Transaction: ", res);
+        result(null, res);
+      });
+};
 
 module.exports = Transaction;

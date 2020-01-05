@@ -28,3 +28,17 @@ exports.create = (req, res) => {
       else res.send(data);
     });
 };
+
+exports.get = (req,res) => {
+  Transaction.get(
+    req.params.userId,
+    (err, data) => {
+        if (err) {
+          res.status(500).send({
+            message: "Error finding transaction with user id " + req.params.userId
+        });
+        } else {
+          res.send(data);
+        }
+    });
+};
