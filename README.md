@@ -34,7 +34,8 @@ MariaDB > FLUSH PRIVILEGES;
 
 4. 回到cmd，執行 sql
 ```
-mysql -u test < db.sql
+mysql -u test < CreateTable.sql
+mysql -u test < InsertData.sql
 ```
 
 5. 再次登入，如果table有建起來就成功了
@@ -43,7 +44,7 @@ mysql -u test
 MariaDB [(none)] > show databases;
 MariaDB [(none)] > use delivery_db;
 MariaDB [(none)] > show tables;
-MariaDB [delivery_db]> select * from users;
+MariaDB [delivery_db]> select * from User;
 ```
 
 ## 使用方式
